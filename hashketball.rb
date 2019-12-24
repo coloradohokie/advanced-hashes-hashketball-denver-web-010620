@@ -248,16 +248,11 @@ def player_with_longest_name
     end
   end
   
-  p player_names_array
   longest = player_names_array.reduce do |string, word|
     string.length > word.length ? string : word
   end
-    
-  p longest
-
+  return longest    
 end
-   
-#longest = hash.reduce do |memo, word|
-#  memo.length > word.length ? memo : word
-  
+
+
 
