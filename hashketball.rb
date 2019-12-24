@@ -249,9 +249,8 @@ def player_with_longest_name
   end
   
   p player_names_array
-  longest_name = nil
-  player_names_array.map do |string|
-    string.length > longest_name.length ? string : longest_name
+  longest = player_names_array.reduce do |string, word|
+    string.length > word.length ? string : word
 
 end
    
