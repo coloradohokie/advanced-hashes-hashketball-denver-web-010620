@@ -110,7 +110,14 @@ def game_hash
   return nds
 end
 
+def top_player_on_each_team(stat)
+#this method returns an hash of hashes for the top player on each team for the given stat.
+#The top performer for the home team is under the :home key; similar for away.
+#the stat parameter must be passed in as a symbol.
 
+  hash = {home: game_hash[:home][:players].max_by {|v| v[stat] }, away: game_hash[:away][:players].max_by {|v| v[stat] }}
+end
+  
 
 
 def num_points_scored(name)
@@ -194,16 +201,19 @@ end #method
 
 
 def big_shoe_rebounds
-#This method returns the  number of rebounds from the player that has the largest shoe size  
-  home_max_shoe_player = game_hash[:home][:players].max_by { |v| v[:shoe] }
-  home_max_shoe_size = home_max_shoe_player[:shoe]
-  away_max_shoe_player = game_hash[:away][:players].max_by { |v| v[:shoe] }
-  away_max_shoe_size = away_max_shoe_player[:shoe]
-   if home_max_shoe_size > away_max_shoe_size
-     return home_max_shoe_player[:rebounds]
-    else
-     return away_max_shoe_player[:rebounds]
-    end #if/else
+#This method returns the  number of rebounds from the player that has the largest shoe size
+  h = top_player_on_each_team(:shoe)
+  rebs = h[:home][:shoe] > h[:away][:shoe] ? h[:home][:rebounds] : h[:away][:rebounds]
+
+#  home_max_shoe_player = game_hash[:home][:players].max_by { |v| v[:shoe] }
+#  home_max_shoe_size = home_max_shoe_player[:shoe]
+#  away_max_shoe_player = game_hash[:away][:players].max_by { |v| v[:shoe] }
+#  away_max_shoe_size = away_max_shoe_player[:shoe]
+#   if home_max_shoe_size > away_max_shoe_size
+#     return home_max_shoe_player[:rebounds]
+#    else
+#     return away_max_shoe_player[:rebounds]
+#    end #if/else
 end #method
 
 
@@ -254,13 +264,7 @@ def player_with_longest_name
   return longest    
 end
 
-def top_player_on_each_team(stat)
-#this method returns an hash of hashes for the top player on each team for the given stat.
-#The top performer for the home team is under the :home key; similar for away.
 
-  hash = {home: game_hash[:home][:players].max_by {|v| v[stat] }, away: game_hash[:away][:players].max_by {|v| v[stat] }}
-end
-  
 
 def long_name_steals_a_ton?
   h = top_player_on_each_team(:steals)
