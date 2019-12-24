@@ -241,6 +241,15 @@ end
 
 def player_with_longest_name
 #This method returns the name of the player with the longest name
-longest = hash.reduce |memo, word|
+  player_names_array = []
+  game_hash[:home][:players].each_with_index do |v, i|
+    player_names_array << game_hash[:home][:players][i][:player_name]
+  end
+  
+  p player_names_array
+end
+   
+#longest = hash.reduce do |memo, word|
+#  memo.length > word.length ? memo : word
   
 
