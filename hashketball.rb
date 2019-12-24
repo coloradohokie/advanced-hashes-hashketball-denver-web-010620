@@ -169,24 +169,14 @@ def player_numbers(team_name)
 #This method takes a team name and returns the player numbers for that team.  
   numbers = []
   indvidual_player_statistics.each do |v|
-    if v[:team_name] == team_name
-      numbers << v[:number]
-    end #if
+    
+      numbers << v[:number] if v[:team_name] == team_name
+#    end #if
   end #block
   return numbers
 end #method
 
-=begin
-  game_hash.each do | homeaway, team_attrib |
-    if game_hash[homeaway][:team_name] == team_name
-      game_hash[homeaway][:players].map.with_index do |v,i|
-        numbers << game_hash[homeaway][:players][i][:number]
-      end #block
-    end #if
-  end #outer block
-  return numbers
-end #method
-=end
+
 
 def player_stats(player_name)
 #This method takes a player's name and returns a hash of that player's stats  
