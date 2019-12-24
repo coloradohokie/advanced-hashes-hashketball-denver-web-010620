@@ -184,6 +184,7 @@ def player_stats(player_name)
   indvidual_player_statistics.each do |v|
     if v[:player_name] == player_name
       v.delete(:player_name)
+      v.delete(:team_name)
       return v
     end #if
   end #block
