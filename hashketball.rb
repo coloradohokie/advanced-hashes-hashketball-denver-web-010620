@@ -209,15 +209,6 @@ end #method
 
 def most_points_scored
 #This method returns the name of the player who scored the most points in the game.
-  home_max_point_player = game_hash[:home][:players].max_by { |v| v[:points] }
-  home_max_points = home_max_point_player[:points]
-  away_max_point_player = game_hash[:away][:players].max_by { |v| v[:points] }
-  away_max_points = away_max_point_player[:points]
-  if home_max_points > away_max_points
-    return home_max_point_player[:player_name]
-  else
-    return away_max_point_player[:player_name]
-  end #if/else
 end #method
 
 def winning_team
