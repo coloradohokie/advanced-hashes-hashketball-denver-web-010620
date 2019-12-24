@@ -113,10 +113,16 @@ end
 
 def top_performer(comparison_stat, return_stat)
 #this method accepts 2 arguments: a comparison stat and a return stat. It compares the top performer of each team according the the comparison stat and returns the return stat for the top performer in the game. The arguments must be passed in as symbols.
-
+#This method is used by most_points_scored, long_name_steals_a_ton?, & big_shoe_rebounds.
   h = {home: game_hash[:home][:players].max_by {|v| v[comparison_stat] }, away: game_hash[:away][:players].max_by {|v| v[comparison_stat] }}
   h[:home][comparison_stat] > h[:away][comparison_stat] ? h[:home][return_stat] : h[:away][return_stat]
 end
+
+def player_stats(team)
+  array = game_hash[:home][:players] + game_hash[:away][:players]
+  pp array
+end
+
   
 def num_points_scored(name)
 #This method takes a player's name and returns the number of points they scored
@@ -185,7 +191,6 @@ end #method
 
 def player_stats(player_name)
 #This method takes a player's name and returns a hash of that player's stats  
-#  player_hash = {}
   game_hash.each do | homeaway, team_attrib |
     game_hash[homeaway][:players].each do |value|
       if value[:player_name] == player_name
@@ -237,7 +242,6 @@ def player_with_longest_name
   end
   return longest    
 end
-
 
 
 def long_name_steals_a_ton?
