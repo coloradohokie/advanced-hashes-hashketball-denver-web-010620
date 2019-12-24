@@ -235,6 +235,7 @@ def winning_team
     return game_hash[:home][:team_name]
   else
     return game_hash[:away][:team_name]
+  end
   
   p "HOme"
   p home_total_points
