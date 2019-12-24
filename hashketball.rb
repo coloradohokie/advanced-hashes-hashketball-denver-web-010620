@@ -128,8 +128,9 @@ def num_points_scored(name)
   player_stats.each do |v|
     if v[:player_name] == name
       return v[:points]
-    end
-  end
+    end #if
+  end #block
+end #method
 
 =begin
   game_hash.each do | homeaway, team_attrib |
