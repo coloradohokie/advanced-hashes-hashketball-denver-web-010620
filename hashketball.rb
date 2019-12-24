@@ -139,27 +139,12 @@ def shoe_size(name)
   end
 end
 
-=begin
 
-  
-  game_hash.each do | homeaway, team_attrib |
-    game_hash[homeaway][:players].each do |value|
-      if value[:player_name] == name
-        return value[:shoe]
-      end #if
-    end # block
-  end # game_hash.each block
-end #method
-
-=end
 def team_colors(team_name)
 #This method takes a team name and returns the team's colors  
-  
   game_hash.each do | homeaway, team_attrib |
-    if game_hash[homeaway][:team_name] == team_name
-      return game_hash[homeaway][:colors]
-      end #if
-    end # block
+    return game_hash[homeaway][:colors] if game_hash[homeaway][:team_name] == team_name
+  end # block
 end #method
 
 
