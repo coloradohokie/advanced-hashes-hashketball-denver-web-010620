@@ -110,13 +110,6 @@ def game_hash
   return nds
 end
 
-def top_player_on_each_team(stat)
-#this method returns an hash of hashes for the top player on each team for the given stat.
-#The top performer for the home team is under the :home key; similar for away.
-#the stat parameter must be passed in as a symbol.
-
-  hash = {home: game_hash[:home][:players].max_by {|v| v[stat] }, away: game_hash[:away][:players].max_by {|v| v[stat] }}
-end
 
 def top_performer(comparison_stat, return_stat)
 #this method returns an hash of hashes for the top player on each team for the given stat.
