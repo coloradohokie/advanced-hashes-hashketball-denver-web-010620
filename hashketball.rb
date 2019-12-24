@@ -111,6 +111,12 @@ def game_hash
 end
 
 
+def indvidual_player_statistics
+#this method builds an array with all of the players in the game. This is useful when trying to find out individual player statistics. This method is used by: num_points_scored
+  array = game_hash[:home][:players] + game_hash[:away][:players]
+end
+
+
 def top_performer(comparison_stat, return_stat)
 #this method accepts 2 arguments: a comparison stat and a return stat. It compares the top performer of each team according the the comparison stat and returns the return stat for the top performer in the game. The arguments must be passed in as symbols.
 #This method is used by most_points_scored, long_name_steals_a_ton?, & big_shoe_rebounds.
@@ -122,10 +128,6 @@ return h[return_stat]
 
 end
 
-def indvidual_player_statistics
-#this method builds an array with all of the players in the game. This is useful when trying to find out individual player statistics. This method is used by: num_points_scored
-  array = game_hash[:home][:players] + game_hash[:away][:players]
-end
 
   
 def num_points_scored(name)
