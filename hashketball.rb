@@ -221,5 +221,18 @@ def most_points_scored
 end #method
 
 def winning_team
-  home_total_points = game_hash[:home][:players]
+  home_total_points = nil
+  game_hash[:home][:players].each_with_index do |v, i|
+    home_total_points += game_hash[:home][players][i][:points]
+  end
+  
+  away_total_points = nil
+  game_hash[:away][:players].each_with_index do |v, i|
+    away_total_points += game_hash[:home][players][i][:points]
+  end
+  
+  p home_total_points
+  p away_total_points
+  
+end
 
