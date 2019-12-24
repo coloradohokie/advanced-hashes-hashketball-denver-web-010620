@@ -112,20 +112,18 @@ end
 
 
 def indvidual_player_statistics
-#this method builds an array with all of the players in the game. This is useful when trying to find out individual player statistics. This method is used by: num_points_scored
+#this method builds an array with all of the players in the game. This is useful when trying to find out individual player statistics. This method is used by: num_points_scored, top_performer, shoe_size, & player_stats.
   array = game_hash[:home][:players] + game_hash[:away][:players]
 end
 
 
 def top_performer(comparison_stat, return_stat)
-#this method accepts 2 arguments: a comparison stat and a return stat. It compares the top performer of each team according the the comparison stat and returns the return stat for the top performer in the game. The arguments must be passed in as symbols.
+#this method accepts 2 arguments: a comparison stat and a return stat.
+#It compares all players using the comparison stat and returns the return stat
+#The arguments must be passed in as symbols.
 #This method is used by most_points_scored, long_name_steals_a_ton?, & big_shoe_rebounds.
-#  h = {home: game_hash[:home][:players].max_by {|v| v[comparison_stat] }, away: game_hash[:away][:players].max_by {|v| v[comparison_stat] }}
-#  h[:home][comparison_stat] > h[:away][comparison_stat] ? h[:home][return_stat] : h[:away][return_stat]
-
-h = indvidual_player_statistics.max_by {|v| v[comparison_stat]}
-return h[return_stat]
-
+  h = indvidual_player_statistics.max_by {|v| v[comparison_stat]}
+  return h[return_stat]
 end
 
 
@@ -218,12 +216,19 @@ end
 def player_with_longest_name
 #This method returns the name of the player with the longest name
   player_names_array = []
+  
+  indvidual_player_statistics.each do |v|
+    player_names_array << v.[:player_name]
+  end
+  
+=begin
   game_hash.each do |homeaway, team_attrib|
     game_hash[homeaway][:players].each_with_index do |v, i|
       player_names_array << game_hash[homeaway][:players][i][:player_name]
     end
   end
-  
+=end
+
   longest = player_names_array.reduce do |string, word|
     string.length > word.length ? string : word
   end
