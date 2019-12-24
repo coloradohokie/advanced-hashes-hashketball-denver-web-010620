@@ -118,11 +118,11 @@ def top_performer(comparison_stat, return_stat)
   h[:home][comparison_stat] > h[:away][comparison_stat] ? h[:home][return_stat] : h[:away][return_stat]
 end
 
-def player_stats(team)
+def player_stats
   array = game_hash[:home][:players] + game_hash[:away][:players]
   pp array
 end
-
+player_stats
   
 def num_points_scored(name)
 #This method takes a player's name and returns the number of points they scored
