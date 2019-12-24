@@ -203,17 +203,7 @@ end #method
 def big_shoe_rebounds
 #This method returns the  number of rebounds from the player that has the largest shoe size
   h = top_player_on_each_team(:shoe)
-  rebs = h[:home][:shoe] > h[:away][:shoe] ? h[:home][:rebounds] : h[:away][:rebounds]
-
-#  home_max_shoe_player = game_hash[:home][:players].max_by { |v| v[:shoe] }
-#  home_max_shoe_size = home_max_shoe_player[:shoe]
-#  away_max_shoe_player = game_hash[:away][:players].max_by { |v| v[:shoe] }
-#  away_max_shoe_size = away_max_shoe_player[:shoe]
-#   if home_max_shoe_size > away_max_shoe_size
-#     return home_max_shoe_player[:rebounds]
-#    else
-#     return away_max_shoe_player[:rebounds]
-#    end #if/else
+  h[:home][:shoe] > h[:away][:shoe] ? h[:home][:rebounds] : h[:away][:rebounds]
 end #method
 
 
