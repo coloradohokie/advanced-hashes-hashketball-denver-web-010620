@@ -241,5 +241,5 @@ end
 
 def player_with_longest_name
 #This method returns the name of the player with the longest name
-
+longest = hash.reduce |memo, word|
 
