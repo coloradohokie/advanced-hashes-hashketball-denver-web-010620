@@ -161,7 +161,7 @@ end
 
 def team_colors(team_name)
 #This method takes a team name and returns the team's colors  
-  game_hash.each do | homeaway |
+  game_hash.each do | homeaway, team_attrib |
     return game_hash[homeaway][:colors] if game_hash[homeaway][:team_name] == team_name
   end # block
 end #method
