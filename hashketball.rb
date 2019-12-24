@@ -221,6 +221,7 @@ def most_points_scored
 end #method
 
 def winning_team
+  #This method sums all of the points scored by each team and returns the name of the winning team
   home_total_points = 0
   game_hash[:home][:players].each_with_index do |v, i|
     home_total_points += game_hash[:home][:players][i][:points]
@@ -236,10 +237,8 @@ def winning_team
   else
     return game_hash[:away][:team_name]
   end
-  
-  p "HOme"
-  p home_total_points
-  p away_total_points
-  
 end
+
+def player_with_longest_name
+#This method returns the name of the player with the longest name
 
