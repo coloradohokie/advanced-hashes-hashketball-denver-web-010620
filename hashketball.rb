@@ -112,17 +112,12 @@ end
 
 
 def top_performer(comparison_stat, return_stat)
-#this method returns an hash of hashes for the top player on each team for the given stat.
-#The top performer for the home team is under the :home key; similar for away.
-#the stat parameter must be passed in as a symbol.
+#this method accepts 2 arguments: a comparison stat and a return stat. It compares the top performer of each team according the the comparison stat and returns the return stat for the top performer in the game. The arguments must be passed in as symbols.
 
   h = {home: game_hash[:home][:players].max_by {|v| v[comparison_stat] }, away: game_hash[:away][:players].max_by {|v| v[comparison_stat] }}
   h[:home][comparison_stat] > h[:away][comparison_stat] ? h[:home][return_stat] : h[:away][return_stat]
-
 end
   
-
-
 def num_points_scored(name)
 #This method takes a player's name and returns the number of points they scored
   
@@ -174,7 +169,6 @@ end #method
 
 def player_numbers(team_name)
 #This method takes a team name and returns the player numbers for that team.  
-  
   numbers = []
   game_hash.each do | homeaway, team_attrib |
     if game_hash[homeaway][:team_name] == team_name
@@ -191,7 +185,7 @@ end #method
 
 def player_stats(player_name)
 #This method takes a player's name and returns a hash of that player's stats  
-  player_hash = {}
+#  player_hash = {}
   game_hash.each do | homeaway, team_attrib |
     game_hash[homeaway][:players].each do |value|
       if value[:player_name] == player_name
