@@ -226,7 +226,7 @@ def winning_team
     home_total_points += game_hash[:home][:players][i][:points]
   end
   
-  away_total_points = 1
+  away_total_points = 0
   game_hash[:away][:players].each_with_index do |v, i|
     away_total_points += game_hash[:home][:players][i][:points]
   end
