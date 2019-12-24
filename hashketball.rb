@@ -216,6 +216,8 @@ def most_points_scored
     player_with_most_points = game_hash[:home][:players].max_by {|v| v[:points]}
   end #if/else
   p player_with_most_points
+  p "Home #{game_hash[:away][:players].max_by { |v| v[:points]}"
+  p "Away #{game_hash[:away][:players].max_by { |v| v[:points]}"
   name = player_with_most_points[:player_name]
   return player_with_most_points[:player_name]
 end #method
