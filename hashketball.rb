@@ -176,6 +176,13 @@ end #method
 
 def player_stats(player_name)
 #This method takes a player's name and returns a hash of that player's stats  
+  indvidual_player_statistics.each do |v|
+    if v[:player_name] == player_name
+      v.delete(:player_name)
+      return v
+    return v[:shoe] if v[:player_name] == name
+  end
+
   game_hash.each do | homeaway, team_attrib |
     game_hash[homeaway][:players].each do |value|
       if value[:player_name] == player_name
