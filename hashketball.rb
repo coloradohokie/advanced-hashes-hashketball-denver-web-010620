@@ -119,34 +119,19 @@ def top_performer(comparison_stat, return_stat)
 end
 
 def indvidual_player_statistics
+#this method builds an array with all of the players in the game. This is useful when trying to find out individual player statistics. This method is used by: num_points_scored
   array = game_hash[:home][:players] + game_hash[:away][:players]
 end
 
   
 def num_points_scored(name)
 #This method takes a player's name and returns the number of points they scored
-  pp indvidual_player_statistics
   indvidual_player_statistics.each do |v|
-    if v[:player_name] == name
-      p v[:player_name], v[:points]
-      return v[:points]
+#    if v[:player_name] == name
+      return v[:points] if v[:player_name] == name
     end #if
   end #block
 end #method
-
-num_points_scored("Jeff Adrien")
-
-=begin
-  game_hash.each do | homeaway, team_attrib |
-    game_hash[homeaway][:players].each do |value|
-      if value[:player_name] == name
-        return value[:points]
-      end #if
-    end # block
-  end # game_hash.each block
-end #method
-=end
-
 
 
 def shoe_size(name)
