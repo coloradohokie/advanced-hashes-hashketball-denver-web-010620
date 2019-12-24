@@ -256,9 +256,9 @@ end
 
 def long_name_steals_a_ton?
   home_max_steals_player = game_hash[:home][:players].max_by { |v| v[:steals] }
-  home_max_steals = home_max_point_player[:steals]
+  home_max_steals = home_max_steals_player[:steals]
   away_max_steals_player = game_hash[:away][:players].max_by { |v| v[:steals] }
-  away_max_steals = away_max_point_player[:steals]
+  away_max_steals = away_max_steals_player[:steals]
   if home_max_steals > away_max_steals
     max_steals_player = home_max_steals_player[:player_name]
   else
