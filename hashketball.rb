@@ -209,6 +209,8 @@ end #method
 
 def most_points_scored
 #This method returns the name of the player who scored the most points in the game.
+  h = top_player_on_each_team(:points)
+  h[:home][:points] > h[:away][:points] ? h[:home][:player_name] : h[:away][:player_name] 
 end #method
 
 def winning_team
