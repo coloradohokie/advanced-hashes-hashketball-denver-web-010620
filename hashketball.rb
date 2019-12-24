@@ -219,8 +219,6 @@ end #method
 def most_points_scored
 #This method returns the name of the player who scored the most points in the game.
   top_performer(:points, :player_name)
-#  h = top_player_on_each_team(:points)
-#  h[:home][:points] > h[:away][:points] ? h[:home][:player_name] : h[:away][:player_name] 
 end #method
 
 def winning_team
@@ -256,8 +254,9 @@ end
 
 
 def long_name_steals_a_ton?
-  h = top_player_on_each_team(:steals)
-  max_steals_player = (h[:home][:steals] > h[:away][:steals] ? h[:home][:player_name] : h[:away][:player_name])
+  top_performer(:steals, :player_name)
+#  h = top_player_on_each_team(:steals)
+#  max_steals_player = (h[:home][:steals] > h[:away][:steals] ? h[:home][:player_name] : h[:away][:player_name])
   max_steals_player == player_with_longest_name ? true : false
 
 end #method
