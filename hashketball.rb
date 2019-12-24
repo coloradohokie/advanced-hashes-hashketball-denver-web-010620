@@ -111,25 +111,32 @@ def game_hash
 end
 
 
+
+######   Supporting Methods   ######
+
 def indvidual_player_statistics
-#this method builds an array with all of the players in the game. This is useful when trying to find out individual player statistics. This method is used by: num_points_scored, top_performer, shoe_size, & player_stats.
+#this method builds an array with all of the players in the game and adds the team name to each player. This is useful when trying to find out individual player statistics. This method is used by: num_points_scored, top_performer, shoe_size, & player_stats.
+
   h = game_hash[:home][:players].each { |v| v[:team_name] = game_hash[:home][:team_name] }
   a = game_hash[:away][:players].each { |v| v[:team_name] = game_hash[:away][:team_name] }
   array = h + a
-#  array = game_hash[:home][:players] + game_hash[:away][:players]
 end
 
 
+
+
+
 def top_performer(comparison_stat, return_stat)
-#this method accepts 2 arguments: a comparison stat and a return stat.
-#It compares all players using the comparison stat and returns the return stat
-#The arguments must be passed in as symbols.
-#This method is used by most_points_scored, long_name_steals_a_ton?, & big_shoe_rebounds.
+#this method accepts 2 arguments: a comparison stat and a return stat. It compares all players using the comparison stat and returns the return stat. The arguments must be passed in as symbols. This method is used by most_points_scored, long_name_steals_a_ton?, & big_shoe_rebounds.
+
   h = indvidual_player_statistics.max_by {|v| v[comparison_stat]}
   return h[return_stat]
 end
 
 
+
+
+#####   First Order Methods   ######
   
 def num_points_scored(name)
 #This method takes a player's name and returns the number of points they scored
@@ -137,6 +144,9 @@ def num_points_scored(name)
       return v[:points] if v[:player_name] == name
   end #block
 end #method
+
+
+
 
 
 def shoe_size(name)
@@ -147,12 +157,17 @@ def shoe_size(name)
 end
 
 
+
+
 def team_colors(team_name)
 #This method takes a team name and returns the team's colors  
   game_hash.each do | homeaway, team_attrib |
     return game_hash[homeaway][:colors] if game_hash[homeaway][:team_name] == team_name
   end # block
 end #method
+
+
+
 
 
 def team_names
@@ -165,16 +180,19 @@ def team_names
 end #method
 
 
+
+
+
 def player_numbers(team_name)
 #This method takes a team name and returns the player numbers for that team.  
   numbers = []
   indvidual_player_statistics.each do |v|
-    
-      numbers << v[:number] if v[:team_name] == team_name
-#    end #if
+    numbers << v[:number] if v[:team_name] == team_name
   end #block
   return numbers
 end #method
+
+
 
 
 
@@ -190,16 +208,26 @@ def player_stats(player_name)
 end #method
 
 
+
+
+
 def big_shoe_rebounds
 #This method returns the  number of rebounds from the player that has the largest shoe size
   top_performer(:shoe, :rebounds)
 end #method
 
 
+
+
+
 def most_points_scored
 #This method returns the name of the player who scored the most points in the game.
   top_performer(:points, :player_name)
 end #method
+
+
+
+
 
 def winning_team
   #This method sums all of the points scored by each team and returns the name of the winning team
@@ -212,6 +240,10 @@ def winning_team
   home_total_points > away_total_points ? game_hash[:home][:team_name] : game_hash[:away][:team_name]
 end
 
+
+
+
+
 def player_with_longest_name
 #This method returns the name of the player with the longest name
   player_names_array = []
@@ -223,6 +255,10 @@ def player_with_longest_name
   end
   return longest    
 end
+
+
+
+
 
 def long_name_steals_a_ton?
   top_performer(:steals, :player_name) == player_with_longest_name ? true : false
