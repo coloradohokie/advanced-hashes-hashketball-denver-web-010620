@@ -199,7 +199,8 @@ def big_shoe_rebounds
   rebs = nil
 #  game_hash.each do | homeaway, team_attrib |
   player_with_largest_shoe_hash = game_hash[:home][:players].max_by { |v| v[:shoe] }
-  game_hash[:away][:players].max_by {|v| v[:shoe]} > player_with_largest_shoe_hash[:shoe] ? 
+  game_hash[:away][:players].max_by {|v| v[:shoe]} > game_hash[:home][:players].max_by { |v| v[:shoe] } ?
+    player_with_largest_shoe = game_hash[:away][:players].max_by {|v| v[:shoe]}
 #    player_with_largest_shoe = game_hash[homeaway][:players].max_by { |v| v[:shoe] }
     rebs = player_with_largest_shoe[:rebounds]
   end # game_hash.each block
