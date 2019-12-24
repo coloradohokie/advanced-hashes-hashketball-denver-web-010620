@@ -180,9 +180,11 @@ def player_stats(player_name)
     if v[:player_name] == player_name
       v.delete(:player_name)
       return v
-    return v[:shoe] if v[:player_name] == name
-  end
+    end #if
+  end #block
+end #method
 
+=begin
   game_hash.each do | homeaway, team_attrib |
     game_hash[homeaway][:players].each do |value|
       if value[:player_name] == player_name
@@ -193,6 +195,7 @@ def player_stats(player_name)
   end # game_hash.each block
 end #method
 
+=end
 
 def big_shoe_rebounds
 #This method returns the  number of rebounds from the player that has the largest shoe size
