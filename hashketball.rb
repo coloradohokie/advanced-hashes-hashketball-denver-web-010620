@@ -251,6 +251,9 @@ def player_with_longest_name
   p player_names_array
   longest = player_names_array.reduce do |string, word|
     string.length > word.length ? string : word
+  end
+    
+  p longest
 
 end
    
