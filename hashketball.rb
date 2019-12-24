@@ -255,12 +255,10 @@ def player_with_longest_name
 end
 
 def top_player_on_each_team(stat)
-#this method returns an array of hashes for the top player on each team for the given stat.
-#The home team is in the [0] index of the array, the away team is in the [1] index of the array
+#this method returns an hash of hashes for the top player on each team for the given stat.
+#The top performer for the home team is under the :home key; similar for away.
 
-#  array = [game_hash[:home][:players].max_by {|v| v[stat] }, game_hash[:away][:players].max_by {|v| v[stat] }]
-  
-  array = {home: game_hash[:home][:players].max_by {|v| v[stat] }, away: game_hash[:away][:players].max_by {|v| v[stat] }}
+  hash = {home: game_hash[:home][:players].max_by {|v| v[stat] }, away: game_hash[:away][:players].max_by {|v| v[stat] }}
 end
   
 
