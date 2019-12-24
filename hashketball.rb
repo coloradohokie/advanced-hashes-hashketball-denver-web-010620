@@ -247,6 +247,7 @@ def player_with_longest_name
   end
   
   p player_names_array
+  longest_nae = player_names_array.max
 end
    
 #longest = hash.reduce do |memo, word|
