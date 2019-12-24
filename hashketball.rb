@@ -254,10 +254,10 @@ end
 
 
 def long_name_steals_a_ton?
-  top_performer(:steals, :player_name)
+  top_performer(:steals, :player_name) == player_with_longest_name ? true : false
 #  h = top_player_on_each_team(:steals)
 #  max_steals_player = (h[:home][:steals] > h[:away][:steals] ? h[:home][:player_name] : h[:away][:player_name])
-  max_steals_player == player_with_longest_name ? true : false
+#  max_steals_player == player_with_longest_name ? true : false
 
 end #method
   
