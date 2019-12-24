@@ -117,6 +117,16 @@ def top_player_on_each_team(stat)
 
   hash = {home: game_hash[:home][:players].max_by {|v| v[stat] }, away: game_hash[:away][:players].max_by {|v| v[stat] }}
 end
+
+def top_performer(comparison_stat, return_stat)
+#this method returns an hash of hashes for the top player on each team for the given stat.
+#The top performer for the home team is under the :home key; similar for away.
+#the stat parameter must be passed in as a symbol.
+
+  h = {home: game_hash[:home][:players].max_by {|v| v[comparison_stat] }, away: game_hash[:away][:players].max_by {|v| v[comparison_stat] }}
+  h[:home][comparison_stat] > h[:away][comparison_stat] ? h[:home][return_stat] : h[:away][return_stat]
+
+end
   
 
 
@@ -202,8 +212,9 @@ end #method
 
 def big_shoe_rebounds
 #This method returns the  number of rebounds from the player that has the largest shoe size
-  h = top_player_on_each_team(:shoe)
-  h[:home][:shoe] > h[:away][:shoe] ? h[:home][:rebounds] : h[:away][:rebounds]
+  top_performer(:shoe, :rebounds)
+#  h = top_player_on_each_team(:shoe)
+#  h[:home][:shoe] > h[:away][:shoe] ? h[:home][:rebounds] : h[:away][:rebounds]
 end #method
 
 
