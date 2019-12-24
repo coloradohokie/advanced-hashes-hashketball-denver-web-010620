@@ -258,9 +258,9 @@ def top_player_on_each_team(stat)
 #this method returns an array of hashes for the top player on each team for the given stat.
 #The home team is in the [0] index of the array, the away team is in the [1] index of the array
 
-  array = [game_hash[:home][:players].max_by {|v| v[stat] }, game_hash[:away][:players].max_by {|v| v[stat] }]
+#  array = [game_hash[:home][:players].max_by {|v| v[stat] }, game_hash[:away][:players].max_by {|v| v[stat] }]
   
-  hash = {home: game_hash[:home][:players].max_by {|v| v[stat] }, away: game_hash[:away][:players].max_by {|v| v[stat] }]
+  array = {home: game_hash[:home][:players].max_by {|v| v[stat] }, away: game_hash[:away][:players].max_by {|v| v[stat] }]
 end
   
 
