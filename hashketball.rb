@@ -216,19 +216,9 @@ end
 def player_with_longest_name
 #This method returns the name of the player with the longest name
   player_names_array = []
-  
   indvidual_player_statistics.each do |v|
     player_names_array << v[:player_name]
   end
-  
-=begin
-  game_hash.each do |homeaway, team_attrib|
-    game_hash[homeaway][:players].each_with_index do |v, i|
-      player_names_array << game_hash[homeaway][:players][i][:player_name]
-    end
-  end
-=end
-
   longest = player_names_array.reduce do |string, word|
     string.length > word.length ? string : word
   end
