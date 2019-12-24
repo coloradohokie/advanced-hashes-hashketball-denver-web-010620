@@ -113,11 +113,10 @@ end
 
 def indvidual_player_statistics
 #this method builds an array with all of the players in the game. This is useful when trying to find out individual player statistics. This method is used by: num_points_scored, top_performer, shoe_size, & player_stats.
-  home_team_players = game_hash[:home][:players]
-  home_team_players.each { |v|  v[:team_name] = game_hash[:home][:team_name] }
-  away_team_players = game_hash[:away][:players]
-  away_team_players.each { |v| v[:team_name] = game_hash[:away][:team_name] }
-  array = game_hash[:home][:players] + game_hash[:away][:players]
+  h = game_hash[:home][:players].each { |v| v[:team_name] = game_hash[:home][:team_name] }
+  a = game_hash[:away][:players].each { |v| v[:team_name] = game_hash[:away][:team_name] }
+  array = h + a
+#  array = game_hash[:home][:players] + game_hash[:away][:players]
 end
 
 
