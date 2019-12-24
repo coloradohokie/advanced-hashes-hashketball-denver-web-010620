@@ -127,15 +127,20 @@ end
 def num_points_scored(name)
 #This method takes a player's name and returns the number of points they scored
   indvidual_player_statistics.each do |v|
-#    if v[:player_name] == name
       return v[:points] if v[:player_name] == name
-#    end #if
   end #block
 end #method
 
 
 def shoe_size(name)
 #This method takes a player's name and returns the shoe size for that player  
+  indvidual_player_statistics.each do |v|
+    return v[:shoe] if v[:player_name] == name
+  end
+end
+
+=begin
+
   
   game_hash.each do | homeaway, team_attrib |
     game_hash[homeaway][:players].each do |value|
@@ -146,7 +151,7 @@ def shoe_size(name)
   end # game_hash.each block
 end #method
 
-
+=end
 def team_colors(team_name)
 #This method takes a team name and returns the team's colors  
   
