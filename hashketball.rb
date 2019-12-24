@@ -195,7 +195,7 @@ end #method
 
 def big_shoe_rebounds
 #This method returns the  number of rebounds from the player that has the largest shoe size  
-  player_with_largest_shoe = nil
+  player_with_largest_shoe = []
   rebs = nil
   game_hash.each do | homeaway, team_attrib |
     player_with_largest_shoe << game_hash[homeaway][:players].max_by { |v| v[:shoe] }
