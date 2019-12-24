@@ -255,20 +255,28 @@ def player_with_longest_name
 end
 
 def top_player_on_each_team(stat)
-#this method returns an array of hashes for the top player on each team. The home team is
-#in the [0] index of the hash, the away team is in the [1] index of the array
+#this method returns an array of hashes for the top player on each team for the given stat.
+#The home team is in the [0] index of the array, the away team is in the [1] index of the array
+  array = [game_hash[:home][:players].max_by {|v| v[stat] }, game_hash[:away][:players].max_by {|v| v[stat] } 
   
 
 def long_name_steals_a_ton?
-  home_max_steals_player = game_hash[:home][:players].max_by { |v| v[:steals] }
-  home_max_steals = home_max_steals_player[:steals]
-  away_max_steals_player = game_hash[:away][:players].max_by { |v| v[:steals] }
-  away_max_steals = away_max_steals_player[:steals]
-  if home_max_steals > away_max_steals
-    max_steals_player = home_max_steals_player[:player_name]
+  array = top_player_on_each_team(steals)
+  if array[0][:steals] > array[1][:steals]
+    max_steals_player = array[0][:player_name]
   else
-    max_steals_player = away_max_steals_player[:player_name]
+    max_steals_player = array[1][:player_name]
   end #if/else
+
+#  home_max_steals_player = game_hash[:home][:players].max_by { |v| v[:steals] }
+#  home_max_steals = home_max_steals_player[:steals]
+#  away_max_steals_player = game_hash[:away][:players].max_by { |v| v[:steals] }
+#  away_max_steals = away_max_steals_player[:steals]
+#  if home_max_steals > away_max_steals
+#    max_steals_player = home_max_steals_player[:player_name]
+#  else
+#    max_steals_player = away_max_steals_player[:player_name]
+#  end #if/else
  
   max_steals_player == player_with_longest_name ? true : false
 
