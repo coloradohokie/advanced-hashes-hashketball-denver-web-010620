@@ -264,11 +264,13 @@ end
 
 def long_name_steals_a_ton?
   array = top_player_on_each_team(:steals)
-  if array[0][:steals] > array[1][:steals]
-    max_steals_player = array[0][:player_name]
-  else
-    max_steals_player = array[1][:player_name]
-  end #if/else
+  max_steals_player = (array[0][:steals] > array[1][:steals] ? array[0][:player_name] : array[1][player_name])
+
+# if array[0][:steals] > array[1][:steals]
+#    max_steals_player = array[0][:player_name]
+#  else
+#    max_steals_player = array[1][:player_name]
+#  end #if/else
 
 #  home_max_steals_player = game_hash[:home][:players].max_by { |v| v[:steals] }
 #  home_max_steals = home_max_steals_player[:steals]
