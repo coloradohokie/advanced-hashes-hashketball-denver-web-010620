@@ -218,7 +218,7 @@ def player_with_longest_name
   player_names_array = []
   
   indvidual_player_statistics.each do |v|
-    player_names_array << v.[:player_name]
+    player_names_array << v[:player_name]
   end
   
 =begin
