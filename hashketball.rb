@@ -127,6 +127,7 @@ def num_points_scored(name)
 #This method takes a player's name and returns the number of points they scored
   player_stats.each do |v|
     if v[:player_name] == name
+      p v[:player_name]
       return v[:points]
     end #if
   end #block
