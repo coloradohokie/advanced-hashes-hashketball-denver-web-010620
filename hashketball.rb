@@ -134,6 +134,8 @@ def num_points_scored(name)
   end #block
 end #method
 
+num_points_scored("Alan Anderson")
+
 =begin
   game_hash.each do | homeaway, team_attrib |
     game_hash[homeaway][:players].each do |value|
