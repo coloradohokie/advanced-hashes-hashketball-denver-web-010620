@@ -206,4 +206,15 @@ def big_shoe_rebounds
   return rebs
 end #method
 
-big_shoe_rebounds
+
+def most_points_scored
+#This method returns the name of the player who scored the most points in the game.
+  
+  if game_hash[:away][:players].max_by {|v| v[:points]} > game_hash[:home][:players].max_by { |v| v[:points] }
+    player_with_most_points = game_hash[:away][:players].max_by {|v| v[:points]}
+  else
+    player_with_most_points = game_hash[:home][:players].max_by {|v| v[:points]}
+  end #if/else
+  return player_with_most_points[:player_name]
+end #method
+
