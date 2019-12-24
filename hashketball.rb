@@ -114,8 +114,12 @@ end
 def top_performer(comparison_stat, return_stat)
 #this method accepts 2 arguments: a comparison stat and a return stat. It compares the top performer of each team according the the comparison stat and returns the return stat for the top performer in the game. The arguments must be passed in as symbols.
 #This method is used by most_points_scored, long_name_steals_a_ton?, & big_shoe_rebounds.
-  h = {home: game_hash[:home][:players].max_by {|v| v[comparison_stat] }, away: game_hash[:away][:players].max_by {|v| v[comparison_stat] }}
-  h[:home][comparison_stat] > h[:away][comparison_stat] ? h[:home][return_stat] : h[:away][return_stat]
+#  h = {home: game_hash[:home][:players].max_by {|v| v[comparison_stat] }, away: game_hash[:away][:players].max_by {|v| v[comparison_stat] }}
+#  h[:home][comparison_stat] > h[:away][comparison_stat] ? h[:home][return_stat] : h[:away][return_stat]
+
+h = indvidual_player_statistics.max_by {|v| v[comparison_stat]}
+return h[return_stat]
+
 end
 
 def indvidual_player_statistics
@@ -172,8 +176,6 @@ def player_numbers(team_name)
 end #method
 
 
-
-
 def player_stats(player_name)
 #This method takes a player's name and returns a hash of that player's stats  
   indvidual_player_statistics.each do |v|
@@ -184,18 +186,6 @@ def player_stats(player_name)
   end #block
 end #method
 
-=begin
-  game_hash.each do | homeaway, team_attrib |
-    game_hash[homeaway][:players].each do |value|
-      if value[:player_name] == player_name
-        value.delete(:player_name)
-        return value
-      end #if
-    end # block
-  end # game_hash.each block
-end #method
-
-=end
 
 def big_shoe_rebounds
 #This method returns the  number of rebounds from the player that has the largest shoe size
