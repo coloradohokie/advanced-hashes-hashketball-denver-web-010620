@@ -129,7 +129,7 @@ def num_points_scored(name)
   indvidual_player_statistics.each do |v|
 #    if v[:player_name] == name
       return v[:points] if v[:player_name] == name
-    end #if
+#    end #if
   end #block
 end #method
 
