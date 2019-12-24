@@ -255,15 +255,22 @@ def player_with_longest_name
 end
 
 def long_name_steals_a_ton
-  home_max_point_player = game_hash[:home][:players].max_by { |v| v[:points] }
-  home_max_points = home_max_point_player[:points]
-  away_max_point_player = game_hash[:away][:players].max_by { |v| v[:points] }
-  away_max_points = away_max_point_player[:points]
-  if home_max_points > away_max_points
-    return home_max_point_player[:player_name]
+  home_max_steals_player = game_hash[:home][:players].max_by { |v| v[:steals] }
+  home_max_steals = home_max_point_player[:steals]
+  away_max_steals_player = game_hash[:away][:players].max_by { |v| v[:steals] }
+  away_max_steals = away_max_point_player[:steals]
+  if home_max_steals > away_max_steals
+    max_steals_player = home_max_steals_player[:player_name]
   else
-    return away_max_point_player[:player_name]
+    max_steals_player = away_max_steals_player[:player_name]
   end #if/else
+  
+  if max_steals_player == player_with_longest_name
+    return true
+  else
+    return false
+  end #if/else
+  
 end #method
   
 
