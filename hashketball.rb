@@ -265,12 +265,8 @@ def long_name_steals_a_ton
     max_steals_player = away_max_steals_player[:player_name]
   end #if/else
   
-  if max_steals_player == player_with_longest_name
-    return true
-  else
-    return false
-  end #if/else
-  
+  max_steals_player == player_with_longest_name ? true : false
+
 end #method
   
 
