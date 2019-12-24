@@ -198,16 +198,9 @@ def big_shoe_rebounds
   player_with_largest_shoe = nil
   rebs = nil
   game_hash.each do | homeaway, team_attrib |
-    player_with_largest_shoe = game_hash[homeaway][:players].max_by { |v| v[:shoe] }
-    
-    ###What this is doing is picking up the away team because they are list in the game hash.
-    ###I need a way to compare the home team to the away team. It's an if statement, but it's
-    ###complex to write
-    ###player with largest_shoe is an array. As the array is enumerated, I need to compare and record
-    ###the max value
-    
-    rebs = player_with_largest_shoe[:rebounds]
+    player_with_largest_shoe << game_hash[homeaway][:players].max_by { |v| v[:shoe] }
   end # game_hash.each block
+    rebs = player_with_largest_shoe[:rebounds]
   p player_with_largest_shoe
   p rebs
   return rebs
