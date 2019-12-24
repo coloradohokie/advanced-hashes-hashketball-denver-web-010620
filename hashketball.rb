@@ -263,7 +263,7 @@ end
   
 
 def long_name_steals_a_ton?
-  array = top_player_on_each_team(steals)
+  array = top_player_on_each_team(:steals)
   if array[0][:steals] > array[1][:steals]
     max_steals_player = array[0][:player_name]
   else
