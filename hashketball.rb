@@ -260,7 +260,7 @@ def top_player_on_each_team(stat)
 
 #  array = [game_hash[:home][:players].max_by {|v| v[stat] }, game_hash[:away][:players].max_by {|v| v[stat] }]
   
-  array = {home: game_hash[:home][:players].max_by {|v| v[stat] }, away: game_hash[:away][:players].max_by {|v| v[stat] }]
+  array = {home: game_hash[:home][:players].max_by {|v| v[stat] }, away: game_hash[:away][:players].max_by {|v| v[stat] }}
 end
   
 
