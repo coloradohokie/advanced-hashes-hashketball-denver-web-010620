@@ -205,14 +205,19 @@ end #method
 def winning_team
   #This method sums all of the points scored by each team and returns the name of the winning team
   home_total_points = 0
-  game_hash[:home][:players].each_with_index do |v, i|
-    home_total_points += game_hash[:home][:players][i][:points]
-  end
-  
   away_total_points = 0
-  game_hash[:away][:players].each_with_index do |v, i|
-    away_total_points += game_hash[:away][:players][i][:points]
+  indvidual_player_statistics.each do |v|
+    home_total_points += v[:points] if v[:team_name] == game_hash[:home][:team_name]
+    away_total_points += v[:points] if v[:team_name] == game_hash[:away][:team_name]
   end
+#  game_hash[:home][:players].each_with_index do |v, i|
+#    home_total_points += game_hash[:home][:players][i][:points]
+#  end
+  
+#  away_total_points = 0
+#  game_hash[:away][:players].each_with_index do |v, i|
+#    away_total_points += game_hash[:away][:players][i][:points]
+#  end
   
   home_total_points > away_total_points ? game_hash[:home][:team_name] : game_hash[:away][:team_name]
 end
