@@ -120,13 +120,18 @@ end
 
 def player_stats
   array = game_hash[:home][:players] + game_hash[:away][:players]
-  pp array
 end
 
   
 def num_points_scored(name)
 #This method takes a player's name and returns the number of points they scored
-  
+  player_stats.each do |v|
+    if v[:player_name] == name
+      return v[:points]
+    end
+  end
+
+=begin
   game_hash.each do | homeaway, team_attrib |
     game_hash[homeaway][:players].each do |value|
       if value[:player_name] == name
@@ -135,7 +140,7 @@ def num_points_scored(name)
     end # block
   end # game_hash.each block
 end #method
-
+=end
 
 
 
