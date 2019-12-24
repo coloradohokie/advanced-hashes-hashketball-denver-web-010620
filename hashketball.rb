@@ -231,6 +231,7 @@ def winning_team
     away_total_points += game_hash[:home][players][i][:points]
   end
   
+  p "HOme"
   p home_total_points
   p away_total_points
   
